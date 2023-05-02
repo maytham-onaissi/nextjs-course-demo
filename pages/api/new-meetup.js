@@ -49,9 +49,7 @@ async function handler(req, res) {
   if (req.method === "POST") {
     const data = req.body;
 
-    const client = await MongoClient.connect(
-      "mongodb+srv://maytham:60620237may@cluster0.mfmndro.mongodb.net/meetup"
-    );
+    const client = await MongoClient.connect(process.env.DB_URL);
     const db = client.db();
 
     const meetupsCollection = db.collection("meetups");
